@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Patient Status</title>
+    <style>
+        /* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-image: url('your-background-image.jpg'); /* Replace with actual path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+}
+
+/* Wrapper to ensure footer stays at the bottom */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header .logo i {
+    margin-right: 10px;
+}
+
+/* Main Content Styles */
+.content {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for readability */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Status Card Styles */
+.status-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between cards */
+}
+
+.status-card {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #1abc9c; /* A nice colored border on the left side */
+}
+
+.status-card h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.status-card h3 i {
+    margin-right: 10px;
+}
+
+.status-card p {
+    margin: 10px 0;
+    color: #34495e;
+    font-size: 1.1rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Header Section -->
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                <i class="fas fa-hospital"></i> <span>Pharmamap</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-phone-alt"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content Section -->
+        <div class="content">
+            <h1><i class="fas fa-notes-medical"></i> Patient Status</h1>
+            <div id="statusContent" class="status-card-container">
+                <!-- Patient status content will be dynamically filled by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 Pharmamap. All Rights Reserved. Designed by <a href="/">Code Cyphers</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Simulated patient data, replace with actual data from backend
+            const patientStatus = [
+                { name: 'Rahul', doctor: 'Dr. Pankaj', department: 'OPD' },
+                { name: 'Virat', doctor: 'Dr. Chtrapal', department: 'ICU' }
+            ];
+
+            document.getElementById('statusContent').innerHTML = patientStatus.map(patient =>
+                `<div class="status-card">
+                    <h3><i class="fas fa-user"></i> ${patient.name}</h3>
+                    <p><i class="fas fa-user-md"></i> Assigned Doctor: ${patient.doctor}</p>
+                    <p><i class="fas fa-hospital"></i> Department: ${patient.department}</p>
+                </div>`
+            ).join('');
+        });
+    </script>
+</body>
+
+</html>
